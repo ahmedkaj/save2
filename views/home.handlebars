@@ -1,0 +1,11 @@
+{{#if connected}}
+<form id="post-form" novalidate>
+    <textarea id="post-message" placeholder="Write your post here..." required></textarea>
+    <div class="error-field">* Please enter a message to post</div>
+    <input type="submit" value="Post">
+</form>
+{{/if}}
+
+{{>posts}}
+
+<script type="module" src="./js/home.js"></script>

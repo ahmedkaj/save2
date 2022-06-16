@@ -1,0 +1,268 @@
+/*
+    Général
+*/
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header, footer {
+    background-color: #1d9bf0;
+    color: #fff;
+}
+
+main {
+    flex: 1;
+    display: flex;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    color: inherit;
+}
+
+.wrapper {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/*
+    Header
+*/
+header .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+header .title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+header .logo svg {
+    width: 2.5rem;
+    height: auto;
+    fill: #1d9bf0;
+}
+
+/*
+    Formulaire de recherche
+*/
+#search-form {
+    grid-column: 1 / 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    max-width: 15rem;
+}
+
+#search-name {
+    flex: 1;
+    width: 100%;
+    padding: .5rem;
+    border: none;
+    border-radius: 1.5rem;
+}
+
+#search-name.error {
+    outline: 3px solid #a00;
+}
+
+#search-form .error-field {
+    display: none;
+    width: 100%;
+    color: #a00;
+}
+
+#search-form .error-field.active {
+    display: block;
+}
+
+#search-form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#search-form svg {
+    fill: #fff;
+}
+
+/*
+    Contenu principal
+*/
+main .wrapper {
+    width: 100%;
+    padding: 0;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+
+h2 {
+    margin: 0;
+    padding: 1rem;
+    font-size: 4rem;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h2 .subtitle {
+    font-size: 2rem;
+    color: #777;
+}
+
+/*
+    Formulaire d'envoi de publication
+*/
+#post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+#post-message {
+    width: 100%;
+    height: 5rem;
+    padding: .5rem;
+    resize: none;
+}
+
+#post-message.error {
+    outline: 3px solid #ce4a4a;
+}
+
+#post-form .error-field {
+    display: none;
+    color: #ce4a4a;
+}
+
+#post-form .error-field.active {
+    display: block;
+}
+
+#post-form input[type=submit] {
+    width: 100%;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #1d9bf0;
+    color: #fff;
+    cursor: pointer;
+}
+
+#post-form input[type=submit]:hover {
+    background-color: #5cbeff;
+}
+
+#post-form input[type=submit]:active {
+    background-color: #3386bc;
+}
+
+/*
+    Liste de publication ou d'utilisateur
+*/
+.posts, .users {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.posts li {
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto 1fr;
+    border-bottom: 1px solid #eee;
+}
+
+.posts .profile {
+    font-weight: bold;
+}
+
+.posts .datetime {
+    color: #777;
+    font-size: .8rem;
+}
+
+.posts .likes {
+    grid-area: 1 / 2 / 3 / 3;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.posts .message {
+    grid-column: 1 / 3;
+    margin-top: .5rem;
+}
+
+.users li {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.no-result {
+    margin: 4rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 35rem) {
+    /*
+        Formulaire d'envoi de publication
+    */
+    #post-form {
+        flex-direction: row;
+        align-items: flex-end;
+        flex-wrap: wrap;
+    }
+
+    #post-message {
+        flex: 1;
+    }
+
+    #post-form .error-field {
+        width: 100%;
+        order: 1;
+    }
+
+    #post-form input[type=submit] {
+        width: auto;
+    }
+}

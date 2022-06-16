@@ -1,0 +1,16 @@
+<h2>
+    Search result
+    <div class="subtitle">{{search}}</div>
+</h2>
+
+<ul class="users">
+    {{#unless empty}}
+        {{#each users}}
+            <li>
+                <a href="/profile/{{id_user}}">{{name}}</a>
+            </li>
+        {{/each}}
+    {{else}}
+        <div class="no-result">No result found</div>
+    {{/unless}}
+</ul>
